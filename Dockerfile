@@ -22,7 +22,7 @@ RUN apk update && \
     libc-dev \
     mesa-gl \
     imagemagick \
-    poppler \
+    poppler-utils \
     qt5-qtbase-x11 \
     xdg-utils \
     xz
