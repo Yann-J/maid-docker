@@ -22,5 +22,10 @@ fi
 
 if [ "$install"=="1" ]; then
   wget -O- https://raw.githubusercontent.com/kovidgoyal/calibre/master/setup/linux-installer.py | python -c "import sys; main=lambda:sys.stderr.write('Download failed\n'); exec(sys.stdin.read()); main(install_dir='$CALIBRE_HOME', isolated=True)"
+  # override pdftools from poppler
+  cp -f /usr/bin/pdfinfo   $CALIBRE_HOME/calibre/bin/
+  cp -f /usr/bin/pdftohtml $CALIBRE_HOME/calibre/bin/
+  cp -f /usr/bin/pdftoppm  $CALIBRE_HOME/calibre/bin/
+  # Cleanup
   rm -rf /tmp/calibre-installer-cache
 fi
